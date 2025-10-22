@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+
+    <form th:action="@{/calculadora}" th:object="${number}" method="post">
+        Ingrese el primer número: <input type="number" th:field="*{camp1}" required>
+        Ingrese el segundo número: <input type="number" th:field="*{camp2}" required>
+        <button type="submit">Calcular</button>
+    </form>
+
+    <h2>Resultados:</h2>
+    <label>Suma: </label> <span th:text="${resultSuma}">0</span> <br>
+    <label>Resta: </label> <span th:text="${resultResta}">0</span> <br>
+    <label>Multiplicacion: </label> <span th:text="${resultMult}">0</span> <br>
+    <label>División: </label><span th:text="${resultDiv}">0</span>
+
+</body>
+
+</html>
