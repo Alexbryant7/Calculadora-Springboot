@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.example.demo.model.Calculator;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -26,7 +29,8 @@ public class CalculatorContrller {
     }
 
     @PostMapping("/calculadora")
-    public String agrega(@ModelAttribute Calculator calculator) {
+    public String agrega(@Valid@ModelAttribute Calculator calculator) {
+
         resultSuma = calculator.getCamp1() + calculator.getCamp2();
         resultResta = calculator.getCamp1() - calculator.getCamp2();
         resultMult = calculator.getCamp1() * calculator.getCamp2();
